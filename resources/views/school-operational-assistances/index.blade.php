@@ -39,7 +39,7 @@
 										<a data-id="{{ $school_operational_assistance->id }}"
 											class="btn btn-sm btn-info text-white show-modal mr-2" data-toggle="modal"
 											data-target="#show_school_operational_assistance">
-											<i class="fas fa-fw fa-search"></i>
+											<i class="fa fa-eye" aria-hidden="true"></i>
 										</a>
 										<a data-id="{{ $school_operational_assistance->id }}"
 											class="btn btn-sm btn-success text-white edit-modal mr-2"

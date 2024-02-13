@@ -43,7 +43,7 @@
 									<div class="btn-group" role="group" aria-label="Basic example">
 										<a data-id="{{ $commodity_location->id }}" class="btn btn-sm btn-info text-white show-modal mr-2"
 											data-toggle="modal" data-target="#show_commodity_location">
-											<i class="fas fa-fw fa-search"></i>
+											<i class="fa fa-eye" aria-hidden="true"></i>
 										</a>
 										<a data-id="{{ $commodity_location->id }}" class="btn btn-sm btn-success text-white edit-modal mr-2"
 											data-toggle="modal" data-target="#commodity_location_edit_modal" data-placement="top"

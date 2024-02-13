@@ -36,7 +36,7 @@
             <div class="btn-group">
                 <a data-id="{{ $user->id }}" class="btn btn-sm btn-info text-white show-modal mr-2"
                     data-toggle="modal" data-target="#show_user">
-                    <i class="fas fa-fw fa-search"></i>
+                    <i class="fa fa-eye" aria-hidden="true"></i>
                 </a>
 
                 <!-- Tambahkan tombol untuk penghapusan -->
