@@ -63,11 +63,35 @@
 		</div>
 	</div>
 </div>
+
 <div class="row">
-	<div class="col-lg-12 col-md-12 col-12 col-sm-12">
+    <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Diagram Lingkaran Kondisi Barang</h4>
+            </div>
+            <div class="card-body">
+                <canvas id="conditionChart" height="10"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Grafik Barang Termahal</h4>
+            </div>
+            <div class="card-body">
+                <canvas id="priceChart" height="150"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-6 col-md-12 col-12 col-sm-12">
 		<div class="card">
 			<div class="card-header">
-				<h4>Barang Termahal</h4>
+				<h4>Detail Barang Termahal</h4>
 			</div>
 			<div class="card-body">
 				@foreach($commodity_order_by_price as $key => $order_by_price)
@@ -95,6 +119,62 @@
 	</div>
 </div>
 @endsection
+
+@push('js')
+@include('_script');
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
+<script>
+    // Data untuk diagram lingkaran
+    var conditionData = [
+        {{ $commodity_condition_good_count }},
+        {{ $commodity_condition_not_good_count }},
+        {{ $commodity_condition_heavily_damage_count }}
+    ];
+
+    // Data untuk grafik barang termahal
+    var priceData = @json($commodity_order_by_price);
+
+    // Inisialisasi diagram lingkaran
+    var conditionChart = new Chart(document.getElementById('conditionChart').getContext('2d'), {
+        type: 'pie',
+        data: {
+            labels: ['Kondisi Baik', 'Kondisi Rusak Ringan', 'Kondisi Rusak Berat'],
+            datasets: [{
+                data: conditionData,
+                backgroundColor: ['#28a745', '#ffc107', '#dc3545'],
+            }]
+        },
+    });
+
+    // Inisialisasi grafik barang termahal
+    var priceChart = new Chart(document.getElementById('priceChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: priceData.map(item => item.name),
+            datasets: [{
+                label: 'Harga',
+                data: priceData.map(item => item.price),
+                backgroundColor: '#007bff',
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return 'Rp' + value.toLocaleString('id-ID');
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+@endpush
+
 
 @push('modal')
 @include('commodities.modal.show')

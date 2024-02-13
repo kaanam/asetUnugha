@@ -4,7 +4,7 @@
 			<a href="{{ route('home') }}">{{ config('app.name') }}</a>
 		</div>
 		<div class="sidebar-brand sidebar-brand-sm">
-			<a href="{{ route('home') }}">{{ substr(config('app.name'), 0, 2) }}</a>
+			<a href="{{ route('home') }}">MAU</a>
 		</div>
 		<ul class="sidebar-menu">
 			<li class="menu-header">Dashboard</li>
@@ -18,7 +18,7 @@
 			</li>
 			<li class="nav-item dropdown{{ request()->routeIs('bantuan-dana-operasional.index') ? ' active' : '' }}">
 				<a class="nav-link" href="{{ route('bantuan-dana-operasional.index') }}"><i class="far fa-square"></i>
-					<span>Data BOS</span></a>
+					<span>Data Sumber</span></a>
 			</li>
 			<li class="nav-item dropdown{{ request()->routeIs('ruangan.index') ? ' active' : '' }}">
 				<a href="{{ route('ruangan.index') }}" class="nav-link"><i class="fas fa-th"></i> <span>Data

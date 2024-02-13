@@ -24,7 +24,7 @@
 <body>
   <table class="center" border="1" cellpadding="10" cellspacing="0">
     <tr>
-      <td colspan="2">Barang Milik {{$sekolah}}</td>
+      <td colspan="2">Barang Milik UNUGHA</td>
     </tr>
     <tr>
       <th>Kode Barang : </th>

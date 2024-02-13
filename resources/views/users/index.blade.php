@@ -18,7 +18,7 @@
 
 						<thead>
 							<tr>
-								<th scope="col">#</th>
+								<th scope="col">No</th>
 								<th scope="col">Nama Lengkap</th>
 								<th scope="col">Alamat Email</th>
 								<th scope="col">Tanggal Ditambahkan</th>
@@ -33,14 +33,22 @@
 								<td>{{ $user->email }}</td>
 								<td>{{ date('m/d/Y H:i A', strtotime($user->created_at)) }}</td>
 								<td class="text-center">
-									<div class="btn-group">
-										<a data-id="{{ $user->id }}"
-											class="btn btn-sm btn-info text-white show-modal mr-2" data-toggle="modal"
-											data-target="#show_user">
-											<i class="fas fa-fw fa-search"></i>
-										</a>
-									</div>
-								</td>
+            <div class="btn-group">
+                <a data-id="{{ $user->id }}" class="btn btn-sm btn-info text-white show-modal mr-2"
+                    data-toggle="modal" data-target="#show_user">
+                    <i class="fas fa-fw fa-search"></i>
+                </a>
+
+                <!-- Tambahkan tombol untuk penghapusan -->
+                <form action="{{ route('pengguna.destroy', $user->id) }}" method="POST" class="d-inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?')">
+                        <i class="fas fa-fw fa-trash"></i>
+                    </button>
+                </form>
+            </div>
+        </td>
 							</tr>
 							@endforeach
 						</tbody>

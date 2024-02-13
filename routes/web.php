@@ -52,4 +52,6 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('pengguna', UserController::class)->except('create', 'edit', 'show', 'update', 'destroy')
         ->parameter('pengguna', 'user');
+    Route::delete('/pengguna/{id}', [UserController::class, 'destroy'])->name('pengguna.destroy');
+
 });

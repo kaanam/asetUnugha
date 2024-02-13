@@ -22,16 +22,37 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserRequest $request)
+    // metode store yang digunakan untuk menyimpan data pengguna.
+    public function store(Request $request)
     {
-        $validated = $request->validated();
-
-        User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => bcrypt($validated['password']),
+        $request->validate([
+            // ... validasi lainnya
+            'user_type' => 'required|in:admin,pimpinan', // Pastikan sesuai dengan opsi pada dropdown
         ]);
 
-        return to_route('pengguna.index')->with('success', 'Data berhasil ditambahkan!');
+        // Buat pengguna baru
+        $user = new User([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            // ... atribut lainnya
+        ]);
+
+        // Tentukan tingkatan pengguna berdasarkan pilihan pada dropdown
+        $user->role = $request->input('user_type');
+
+        // Simpan pengguna
+        $user->save();
+
+        return redirect()->route('pengguna.index')->with('success', 'Pengguna berhasil ditambahkan!');
+    }
+
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('pengguna.index')->with('success', 'Pengguna berhasil dihapus!');
     }
 }

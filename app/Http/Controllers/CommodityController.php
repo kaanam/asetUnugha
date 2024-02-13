@@ -79,12 +79,12 @@ class CommodityController extends Controller
 
     public function export()
     {
-        return Excel::download(new CommoditiesExport, 'daftar-barang-' . date('d-m-Y') . '.xlsx');
+        return Excel::download(new CommoditiesExport(), 'daftar-barang-' . date('d-m-Y') . '.xlsx');
     }
 
     public function import(CommodityImportRequest $request)
     {
-        Excel::import(new CommoditiesImport, $request->file('file'));
+        Excel::import(new CommoditiesImport(), $request->file('file'));
 
         return to_route('barang.index')->with('success', 'Data barang berhasil diimpor!');
     }

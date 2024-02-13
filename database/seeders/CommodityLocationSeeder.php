@@ -15,27 +15,22 @@ class CommodityLocationSeeder extends Seeder
     public function run()
     {
         $locations = [
-            'Ruang Guru',
-            'Ruang Kepala Sekolah',
-            'Ruang Staff Tata Usaha (TU)',
-            'Ruang Gudang',
+            'Ruang Dosen',
+            'Ruang Rektor',
+            'Ruang Wakil Rektor I',
+            'Ruang Fakultas MIKOM',
+            'Ruang Rapat UNUGHA',
             'Perpustakaan Bawah',
             'Perpustakaan Atas',
-            'Ruang OSIS',
-            'Ruang Laboratorium',
-            'Ruang Unit Kesehatan Sekolah (UKS)',
-            'Ruang Kantin',
-            'Ruang Koperasi',
+            'Ruang Laboratorium Komputer',
+            'Ruang Laboratorium IoT',
+            'Ruang Laboratorium Bahasa',
+            'Ruang Laboratorium Jaringan',
+            'Ruang Micro Teaching',
             'Ruang Satpam/Pos Satpam',
-            'Ruang Salat',
-            'Ruang Kepala Tata Usaha (TU)',
-            'Ruang Seni Musik',
-            'Ruang Wakil Kepala Sekolah',
-            'Ruang Komputer',
-            'Ruang Praktek',
-            'Ruang Serba Guna',
-            'Ruangan Guru BP (Bimbingan Penyuluhan)',
-            'Ruang Kegiatan Ekstrakurikuler'
+            'Ruang Masjid Aseggaf',
+            'Ruang Aula UNUGHA',
+            'Ruang Koperasi UNUGHA'
         ];
 
         for ($i = 1; $i < count($locations); $i++) {

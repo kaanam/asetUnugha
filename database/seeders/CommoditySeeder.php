@@ -23,24 +23,21 @@ class CommoditySeeder extends Seeder
 
         $commodities = [
             'Meja',
-            'Kursi',
-            'Kursi Roda Dua',
-            'Lemari Kamera',
-            'Lemari Buku',
-            'Lemari Sepatu',
-            'Penghapus Papan Tulis Putih',
-            'Meja Guru',
-            'Kursi Guru',
-            'Rak Sepatu',
-            'Rak Peralatan Sekolah',
-            'Rak Helm',
-            'Rak Sepatu Guru',
-            'Rak Helm Guru',
+            'Air Conditioner(AC)',
+            'Air Conditioner(AC)',
+            'Air Conditioner(AC)',
+            'Kursi Lipat',
+            'Lemari',
             'Papan Tulis Putih',
-            'Papan Tulis Hitam',
+            'Penghapus Papan Tulis Putih',
+            'Meja Dosen',
+            'Kursi Dosen',
+            'Rak Peralatan Fakultas',
             'Kipas Dinding',
-            'Kipas Angin Portabel',
-            'Kipas Angin',
+            'Air Conditioner(AC)',
+            'Proyektor',
+            'Air Conditioner(AC)',
+            'Kipas Dinding',
         ];
 
         $brands = [
@@ -54,7 +51,7 @@ class CommoditySeeder extends Seeder
             "Dove's",
             'Funika',
             'Atria',
-            'Vivere',
+            'LG',
         ];
 
         $materials = [

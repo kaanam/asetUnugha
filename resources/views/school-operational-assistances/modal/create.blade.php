@@ -4,7 +4,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="staticBackdropLabel">Tambah Data BOS</h5>
+				<h5 class="modal-title" id="staticBackdropLabel">Tambah Data Sumber</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -15,7 +15,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="form-group">
-								<label for="name">Nama BOS</label>
+								<label for="name">Nama Sumber</label>
 								<input type="text" name="name" class="form-control @error('name', 'store') is-invalid @enderror"
 									id="name" value="{{ old('name') }}" placeholder="Masukan nama..">
 								@error('name', 'store')
@@ -28,7 +28,7 @@
 
 						<div class="col-lg-12">
 							<div class="form-group">
-								<label for="description">Deskripsi BOS</label>
+								<label for="description">Deskripsi Sumber</label>
 								<textarea name="description" class="form-control @error('description', 'store') is-invalid @enderror"
 									name="description" id="description" style="height: 100px;"
 									placeholder="Masukan deskripsi (opsional)..">{{ old('description') }}</textarea>

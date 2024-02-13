@@ -24,7 +24,7 @@
 					<table class="table table-bordered table-hover" id="datatable">
 						<thead>
 							<tr>
-								<th scope="col">#</th>
+								<th scope="col">No</th>
 								<th scope="col">Nama</th>
 								<th scope="col">Deskripsi</th>
 								<th scope="col">Tanggal Ditambahkan</th>
@@ -37,7 +37,8 @@
 								<th scope="row">{{ $loop->iteration }}</th>
 								<td>{{ $commodity_location->name }}</td>
 								<td>{{ Str::limit($commodity_location->description, 55, '...') }}</td>
-								<td>{{ date('d/m/Y H:i A', strtotime($commodity_location->created_at)) }}</td>
+								<td>{{ \Carbon\Carbon::parse($commodity_location->created_at)->setTimezone('Asia/Jakarta')->format('d/m/Y H:i') }}</td>
+
 								<td class="text-center">
 									<div class="btn-group" role="group" aria-label="Basic example">
 										<a data-id="{{ $commodity_location->id }}" class="btn btn-sm btn-info text-white show-modal mr-2"
