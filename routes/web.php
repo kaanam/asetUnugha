@@ -50,8 +50,14 @@ Route::middleware('auth')->group(function () {
         ->parameter('ruangan', 'commodity_location');
     Route::post('/ruangan/import', [CommodityLocationController::class, 'import'])->name('ruangan.import');
 
-    Route::resource('pengguna', UserController::class)->except('create', 'edit', 'show', 'update', 'destroy')
+    Route::resource('pengguna', UserController::class)
+        ->except('create', 'edit', 'show', 'update', 'destroy')
         ->parameter('pengguna', 'user');
+
+    // Route::get('/pengguna/edit/{id}', 'UserController@edit')->name('pengguna.edit');
+
+    Route::put('/pengguna/{id}', 'UserController@update')->name('pengguna.update');
+
     Route::delete('/pengguna/{id}', [UserController::class, 'destroy'])->name('pengguna.destroy');
 
 });

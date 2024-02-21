@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\User;
+
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -45,6 +46,13 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('pengguna.index')->with('success', 'Pengguna berhasil ditambahkan!');
+    }
+
+    public function update(UpdateUserRequest $request, User $user)
+    {
+        $user->update($request->validated());
+
+        return to_route('pengguna.index')->with('success', 'Data berhasil diubah!');
     }
 
 

@@ -30,4 +30,9 @@ Route::name('api.')->group(function () {
         [SchoolOperationalAssistanceController::class, 'show']
     )->name('bantuan-dana-operasional.show');
     Route::get('/pengguna/{user}', [UserController::class, 'show'])->name('pengguna.show');
+
+    // / New route for the user with the "pimpinan" role
+    Route::middleware(['auth:api', 'role:pimpinan'])->group(function () {
+        Route::get('/pimpinan/{user}', [UserController::class, 'show'])->name('pimpinan.show');
+    });
 });

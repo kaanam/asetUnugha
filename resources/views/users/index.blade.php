@@ -33,22 +33,29 @@
 								<td>{{ $user->email }}</td>
 								<td>{{ date('m/d/Y H:i A', strtotime($user->created_at)) }}</td>
 								<td class="text-center">
-            <div class="btn-group">
-                <a data-id="{{ $user->id }}" class="btn btn-sm btn-info text-white show-modal mr-2"
-                    data-toggle="modal" data-target="#show_user">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                </a>
+									<div class="btn-group">
+										<a data-id="{{ $user->id }}" class="btn btn-sm btn-info text-white show-modal mr-2"
+											data-toggle="modal" data-target="#show_user">
+											<i class="fa fa-eye" aria-hidden="true"></i>
+										</a>
+										
+										<!-- button edit -->
+										<a data-id="{{ $user->id }}" class="btn btn-sm btn-success text-white edit-modal mr-2"
+											data-toggle="modal" data-target="#user_edit_modal">
+											<i class="fas fa-fw fa-edit"></i>
+										</a>
+										
 
-                <!-- Tambahkan tombol untuk penghapusan -->
-                <form action="{{ route('pengguna.destroy', $user->id) }}" method="POST" class="d-inline">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?')">
-                        <i class="fas fa-fw fa-trash"></i>
-                    </button>
-                </form>
-            </div>
-        </td>
+										<!-- Tambahkan tombol untuk penghapusan -->
+										<form action="{{ route('pengguna.destroy', $user->id) }}" method="POST" class="d-inline">
+											@csrf
+											@method('DELETE')
+											<button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?')">
+												<i class="fas fa-fw fa-trash"></i>
+											</button>
+										</form>
+									</div>
+								</td>
 							</tr>
 							@endforeach
 						</tbody>

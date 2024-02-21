@@ -4,7 +4,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="staticBackdropLabel">Ubah Data BOS</h5>
+				<h5 class="modal-title" id="staticBackdropLabel">Ubah Data Oprasional</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -16,7 +16,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="form-group">
-								<label for="name">Nama BOS</label>
+								<label for="name">Nama Oprasional</label>
 								<input type="text" name="name" class="form-control" id="name" placeholder="Masukan nama..">
 							</div>
 						</div>
